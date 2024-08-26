@@ -5,6 +5,7 @@ import sys
 import pygame
 
 from setting import Setting
+from ship import Ship
 
 class AlienInvasion:
     """ゲームのアセットと動作を管理する全体のクラス"""
@@ -17,6 +18,7 @@ class AlienInvasion:
             (self.setting.screen_width,self.setting.screen_height))
         pygame.display.set_caption("Aliean Invasion")
         
+        self.ship = Ship(self)
         
     def run_game(self):
         """ゲームのメインループを開始する"""
@@ -29,6 +31,7 @@ class AlienInvasion:
                     
             # ループを通過するたびに画面を再描画する
             self.screen.fill(self.setting.bg_color) # 画面の塗りつぶし
+            self.ship.blitme()
             
             # 最新の状態の画面を表示する
             pygame.display.flip()
