@@ -24,12 +24,18 @@ class AlienInvasion:
         """ゲームのメインループを開始する"""
         
         while True:
-            # キーボードとマウイのイベントを監視する
+            self._check_events()
+            self._update_screen()
+            
+        
+    def _check_events(self):
+        # キーボードとマウイのイベントを監視する
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
-                    
-            # ループを通過するたびに画面を再描画する
+    
+    def _update_screen(self):
+        # ループを通過するたびに画面を再描画する
             self.screen.fill(self.setting.bg_color) # 画面の塗りつぶし
             self.ship.blitme()
             
